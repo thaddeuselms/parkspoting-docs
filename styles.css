@@ -98,3 +98,4 @@ ul {
     padding: 22px 18px 14px;
   }
 }
+.policy-nav{width:min(960px,calc(100% - 32px));margin:0 auto;padding:18px 0}.policy-nav a{color:#176B4D;font-weight:600;text-decoration:none}.policy-nav a:hover{text-decoration:underline}.policy-page .topbar{background:#143e30}.policy-page h2{color:#176B4D}
