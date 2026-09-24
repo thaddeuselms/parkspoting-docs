@@ -5,15 +5,15 @@ title: ParkSpoting Privacy Policy
 
 # ParkSpoting Privacy Policy
 
-Last updated: September 18, 2026
+Last updated: September 24, 2026
 
-ParkSpoting is a local-first parking assistance app. We design the product to keep the majority of parking-related data on your device and only share what is necessary for optional community availability features and service integrity.
+ParkSpoting is a local-first parking assistance app. We design the product to keep the majority of parking-related data on your device while using cloud services for community availability, nearby searches, authentication, and service integrity.
 
-This page explains what we collect, how we use it, what we do not collect, how long data is kept, and the choices you have to delete or control it.
+This page explains what we collect, how we use it, what is shared, and the choices you have to delete or control it.
 
 ## 1. Overview
 
-ParkSpoting helps users identify parking availability and departure timing based on local device data. The app stores parking-related information on the device by default and may use cloud services only for optional features such as community parking availability and account-based service operations.
+ParkSpoting helps users identify parking availability and departure timing based on local device data. The app stores parking-related information on the device by default and uses cloud services for features such as community parking availability, nearby searches, and account-based service operations.
 
 We aim to minimize data collection and avoid using personal information for advertising or cross-app tracking.
 
@@ -30,11 +30,11 @@ ParkSpoting may store local parking information on your device, including:
 - optional photos associated with a parking record
 - local motion and activity classification data used to detect parking and departure
 
-This data is primarily stored locally and is retained for your own app experience. The active parking record remains until it is resolved or removed. Recent local parking history is kept for a limited retention window by default.
+Your saved Find My Car record, including associated notes, garage details, and photos, is stored locally and is not published as a community listing. ParkSpoting does not maintain a dedicated cloud record of your currently parked car. Local storage may be subject to your device’s operating-system backup and transfer settings.
 
 ### B. Optional community availability data
 
-If you choose to share a parking spot as available, ParkSpoting may send a limited availability record to cloud services. This may include:
+When community sharing is enabled, ParkSpoting can send an availability report after detecting or confirming that you have left a parking spot. Sharing may happen automatically according to your settings. Reports may include:
 
 - parking coordinate
 - estimated uncertainty
@@ -42,7 +42,11 @@ If you choose to share a parking spot as available, ParkSpoting may send a limit
 - confidence and source category
 - a generated idempotency key for duplicate prevention
 
-We do not expose account identity, vehicle identity, route history, notes, or photos in the public availability listing.
+Public availability listings do not include account identifiers, vehicle identity, route history, notes, or photos. Shared availability can be accessed through our app, website, and public availability services; access is not limited to signed-in app members.
+
+Internal service records can associate submitted reports with an account identifier. Duplicate-prevention identifiers may also contain parking coordinates and parking-event times. Reports should therefore not be considered fully anonymous.
+
+An “occupied” status describes a parking spot, not an identified person or vehicle currently using it. If you confirm a spot’s availability, we process the spot identifier, your response, the time, and information used to authenticate the request and prevent duplicates.
 
 ### C. Account and authentication data
 
@@ -53,11 +57,13 @@ To protect community-sharing features, we may create a cloud account and, if pro
 - protected writes and service integrity
 - challenge and verification flows
 
-We do not use this account data for advertising or tracking.
+Account and authentication records can include an account identifier, session information, IP address, and browser or device information. An automatically created account can exist even if you have not provided a name or email address. If you choose an available email or social sign-in option, we may also process information supplied through that sign-in.
+
+We do not use this account data for advertising or cross-app tracking.
 
 ### D. Diagnostics data
 
-Crash and product diagnostics are separate and disabled by default unless explicitly enabled in a particular build or release. When enabled, diagnostics are limited to coarse health and product-level fields. We do not collect:
+Crash and product diagnostics are separate from the location and sensor processing needed for parking features. Diagnostic availability depends on the app build and your settings. Diagnostic submissions are designed to be limited to coarse health and product-level fields and to exclude:
 
 - raw sensor streams
 - raw location routes
@@ -81,34 +87,29 @@ We use data to:
 
 We do not sell personal data and do not use personal data for cross-app advertising or targeted marketing.
 
-## 4. Local-first design
+## 4. Location searches and private places
 
-ParkSpoting is designed to keep parking data on the device whenever possible. Cloud storage is used only for specific optional features that require shared availability or account-based verification.
+Searching for nearby parking sends your current coordinates to our service to find relevant spots. This is separate from publishing your saved parked-car record.
 
-This means the app prioritizes:
+Private-place labels, addresses, coordinates, and boundaries are stored on your device. These settings help prevent parking records and community vacancy reports from being generated at designated locations, such as your home. They do not disable all location processing, nearby searches, address lookup, or navigation services you choose to use.
 
-- device-local processing
-- limited cloud transmission
-- minimal retention
-- user-controlled deletion and account management
+## 5. Deletion and data controls
 
-## 5. Retention and deletion
+You can use the app’s settings and account-management controls to delete local parking data or request account deletion. You can also contact us with a deletion request.
 
-Retention is limited to what is necessary for the product to function and for security or abuse-prevention purposes.
+Account deletion is designed to remove your authentication account and associated private service records. Some shared availability records may remain, including records that can no longer be attributed exclusively to your account. Turning off community sharing stops future sharing but does not itself delete previous reports. A report disappearing from the map does not necessarily mean its underlying database record has been deleted.
 
-- local parking history is retained on-device for a defined limited period
-- active parking records remain until resolved or removed
-- optional community availability records are kept only for the period needed to provide the feature and prevent abuse
-- diagnostic data is minimized and limited to short retention periods
-- account deletion removes associated cloud identity, private receipts, and service-side references that are directly attributable to the account
-
-Users may delete their account and associated cloud data through the app or by contacting the developer. Local device data can also be removed from the device through the app settings and account-management flows.
+The in-app parking export covers parking history and associated photos; it is not a complete export of every local setting or cloud record. Contact us for broader access requests.
 
 ## 6. Sharing with third parties
 
-ParkSpoting may use cloud infrastructure providers to support account management, data storage, diagnostics, and security functions. We minimize what is sent and do not share personal data for advertising or profiling.
+ParkSpoting uses Supabase for cloud database and authentication services. Depending on the app build and enabled settings, diagnostic services such as Sentry may process limited diagnostic information.
 
-Third-party providers may be used only to support the product, and only the minimum necessary data is transmitted.
+Address lookup can send addresses or coordinates to platform geocoding services. Opening directions sends the destination and related labels to your selected mapping service, such as Apple Maps or Google Maps. A destination may be your saved car location. These providers process information under their own privacy policies.
+
+Infrastructure providers may also process operational and security information, including service logs and backups. Deleting a record from the live database does not necessarily remove copies from provider logs or backups at the same time.
+
+We do not share personal data for advertising or cross-app profiling.
 
 ## 7. Security
 
@@ -139,14 +140,4 @@ We may update this policy from time to time to reflect product changes, legal re
 For questions, privacy requests, or account deletion requests, contact:
 
 - Developer: Thaddeus Elms
-- Email: privacy@parkspoting.app
-
-If an email address is not yet active for your production deployment, use the app owner’s verified contact method before public launch.
-
-## 12. Important note
-
-This policy is intended as a public-facing privacy statement for the ParkSpoting app and supporting services. It should be reviewed and approved by the product owner and legal counsel before use as the final production legal policy for store submission or public distribution.
-
----
-
-If you are a developer setting up the public site, the repo is configured for GitHub Pages deployment to the project site and this page is the landing page for the public privacy policy.
+- Email: privacy@parkspoting.com
